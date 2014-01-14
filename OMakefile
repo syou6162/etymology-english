@@ -1,0 +1,6 @@
+LATEX = platex
+DVIPDFM = dvipdfmx
+
+LaTeXDocument(main, main)
+
+.DEFAULT: main.pdf main.dvi
