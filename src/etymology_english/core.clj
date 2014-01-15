@@ -135,6 +135,76 @@
    {:en "memo / min" :ja "記憶、思い起こす" :examples [{:en "immemorial", :ja "太古の、大昔の"}]}
    ; 38
    {:en "mini" :ja "小さい" :examples [{:en "minor", :ja "小さい方の、重要でない、未成年者"}]}
+   ; 39, 40
+   {:en "miss / mise / mit" :ja "送る" :examples [{:en "dismiss", :ja "解散させる、退ける"}]}
+   ; 41
+   {:en "mode" :ja "型、尺度" :examples [{:en "remodel", :ja "建て替える、形を直す"}]}
+   ; 42
+   {:en "mot / mob / mov" :ja "動く" :examples [{:en "emotion", :ja "感情、情緒"}]}
+   ; 43
+   {:en "na(n)t / nai" :ja "生まれる" :examples [{:en "pregnant", :ja "妊娠している"}]}
+   ; 44
+   {:en "nom(in) / onym / noun" :ja "名前、伝える" :examples [{:en "pronounce", :ja "発音する"}]}
+   ; 45
+   {:en "ord(er)" :ja "命令、順序" :examples [{:en "disorder", :ja "無秩序、混乱、障害"}]}
+   ; 46
+   {:en "part" :ja "分ける、部分" :examples [{:en "partial", :ja "部分的な、えこひいきする、とても好きな"}]}
+   ; 47
+   {:en "pass / pace" :ja "歩、通り過ぎる" :examples [{:en "pastime", :ja "娯楽、気晴らし"}]}
+   ; 48
+   {:en "path / pass" :ja "感じる、苦しむ" :examples [{:en "antipathy", :ja "反感、嫌悪"}]}
+   ; 49
+   {:en "ped(e) / pod / pus" :ja "足" :examples [{:en "peddle", :ja "行商する、売り歩く"}]}
+   ; 50
+   {:en "pel / puls" :ja "押す、打つ" :examples [{:en "compel", :ja "強いる、余儀なくさせる"}]}
+   ; 51
+   {:en "pend" :ja "垂れる、さげる" :examples [{:en "depend", :ja "頼る、依存する"}]}
+   ; 52
+   {:en "pend / pens" :ja "(吊るして)計る、支払う" :examples [{:en "dispence", :ja "分配する、…なしですます"}]}
+   ; 53
+   {:en "ple / pli / ply" :ja "(折り)重なる、(折り)重ねる" :examples [{:en "complicated", :ja "複雑な、難しい"}]}
+   ; 54
+   {:en "popul / public / dem" :ja "人、人々" :examples [{:en "democracy", :ja "民主主義、民主政治"}]}
+   ; 55
+   {:en "port" :ja "運ぶ、港" :examples [{:en "export", :ja "輸出する"}]}
+   ; 56, 57
+   {:en "pose / posit" :ja "置く、止まる" :examples [{:en "purpose", :ja "目的、意図"}]}
+   ; 58
+   {:en "posit / pone" :ja "置く" :examples [{:en "postpone", :ja "延期する"}]}
+   ; 59
+   {:en "press" :ja "押す" :examples [{:en "depress", :ja "低迷させる、落胆させる、弱める"}]}
+   ; 60
+   {:en "pri(n) / pri(m)" :ja "一番目の、一つの" :examples [{:en "premier", :ja "首相、総理大臣"}]}
+   ; 61
+   {:en "pris(e) / pre(hend)" :ja "つかむ" :examples [{:en "imprison", :ja "投獄する"}]}
+   ; 62
+   {:en "quiz / quire / quest" :ja "求める、探る" :examples [{:en "conquest", :ja "征服"}]}
+   ; 63
+   {:en "sent / sense" :ja "感じる" :examples [{:en "consent", :ja "同意する"}]}
+   ; 64
+   {:en "sent / est / ess" :ja "ある、いる" :examples [{:en "interest", :ja "利害、利益、利子、興味、関心、趣味"}]}
+   ; 65
+   {:en "serv" :ja "保つ、使える、役立つ" :examples [{:en "conserve", :ja "保存する、大切に使う"}]}
+   ; 66
+   {:en "sid(e) / sess / sed" :ja "座る" :examples [{:en "preside", :ja "(議長、司会を)務める、統括する"}]}
+   ; 67
+   {:en "sign" :ja "印" :examples [{:en "signify", :ja "示す、意味する"}]}
+   ; 68
+   {:en "simi(l) / seem / sem" :ja "同じ、似ている" :examples [{:en "assemble", :ja "集まる、集める、組み立てる"}]}
+   ; 69
+   {:en "sist" :ja "立つ" :examples [{:en "exist", :ja "存在する、生存する"}]}
+   ; 70
+   {:en "sol" :ja "1番目の、一つの、太陽" :examples [{:en "solar", :ja "太陽の"}]}
+   ; 71
+   {:en "spec / spic / spis" :ja "見る" :examples [{:en "despiss", :ja "軽蔑する"}]}
+   ; 72, 73
+   {:en "spect" :ja "見る" :examples [{:en "spectator", :ja "観客"}]}
+   ; 74
+   {:en "stand / stant / stance" :ja "立つ、耐える" :examples [{:en "standoffish", :ja "よそよそしい、無愛想な"}]}
+   ; 75
+   {:en "sta(a)" :ja "立つ、建てる" :examples [{:en "obstacle", :ja "障害(物)、邪魔(物)"}]}
+   ; 76
+   {:en "stat" :ja "立つ" :examples [{:en "stateman", :ja "政治家"}]}
    ])
 
 (defn print-tex [coll]
