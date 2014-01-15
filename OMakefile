@@ -1,5 +1,6 @@
 LATEX = platex
 DVIPDFM = dvipdfmx
+DVIPDFMFLAGS = -p a4
 
 LaTeXDocument(main, main)
 
