@@ -306,9 +306,11 @@
     :ja "小さいことを表わす接尾辞" :examples [{:en "starlet", :ja "小さい星"}]}
    ])
 
+(def ^:dynamic *column-size* "\\begin{longtable}{|p{9em}|p{6em}|p{6em}|p{6em}|}")
+
 (defn print-tex [coll]
   (println "{\\footnotesize")
-  (println "\\begin{longtable}{|p{9em}|p{6em}|p{6em}|p{6em}|}")
+  (println *column-size*)
   (println "\\hline")
   (doseq [p (apply concat (repeat 1 coll))]
     (println (str (:en p) " & " (:ja p) " & "
@@ -321,7 +323,11 @@
 (defn -main [& args]
   (binding [*out* (java.io.FileWriter. "prefix.tex")]
     (print-tex prefix))
-  (binding [*out* (java.io.FileWriter. "root.tex")]
+  (binding [*out* (java.io.FileWriter. "root.tex")
+            *column-size* "\\begin{longtable}{|p{9em}|p{6em}|p{5em}|p{7em}|}"]
     (print-tex root))
+  (binding [*out* (java.io.FileWriter. "suffix.tex")
+            *column-size* "\\begin{longtable}{|p{9em}|p{8em}|p{5em}|p{5em}|}"]
+    (print-tex suffix))
   (println (sh "omake"))
   (shutdown-agents))
