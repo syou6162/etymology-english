@@ -205,6 +205,48 @@
    {:en "sta(a)" :ja "立つ、建てる" :examples [{:en "obstacle", :ja "障害(物)、邪魔(物)"}]}
    ; 76
    {:en "stat" :ja "立つ" :examples [{:en "stateman", :ja "政治家"}]}
+   ; 77
+   {:en "stick / sting / stim" :ja "刺す、突く" :examples [{:en "distinguish", :ja "区別する"}]}
+   ; 78
+   {:en "stitute" :ja "立つ" :examples [{:en "destitute", :ja "貧困した、極貧の"}]}
+   ; 79
+   {:en "string / strict" :ja "結ぶ、縛る、引く、伸ばす" :examples [{:en "district", :ja "地方、地域、地区"}]}
+   ; 80
+   {:en "strai(n) / stre" :ja "結ぶ、縛る、引く、伸ばす" :examples [{:en "distress", :ja "苦悩、悩み、苦境"}]}
+   ; 81
+   {:en "str(uct)" :ja "建てる、積む" :examples [{:en "construct", :ja "建設する"}]}
+   ; 82
+   {:en "tact / tang / tag" :ja "触れる" :examples [{:en "intact", :ja "損なわれない、無傷の、そのままの"}]}
+   ; 83
+   {:en "tail / cide / cis(e)" :ja "切る" :examples [{:en "detail", :ja "詳細、細部"}]}
+   ; 84
+   {:en "tain" :ja "保つ" :examples [{:en "obtain", :ja "得る、獲得する"}]}
+   ; 85, 86
+   {:en "tens / tend / tent" :ja "伸ばす、張る" :examples [{:en "tendency", :ja "傾向"}]}
+   ; 87
+   {:en "tin / ten(e)" :ja "保つ、続く" :examples [{:en "content", :ja "中身、内容"}]}
+   ; 88
+   {:en "ton(e) / tun / so(u)n" :ja "音、雷" :examples [{:en "monotonous", :ja "単調な、つまらない"}]}
+   ; 89, 90
+   {:en "tract / tra(i)" :ja "引く" :examples [{:en "abstract", :ja "抽象的な、難解な、摘要"}]}
+   ; 91
+   {:en "vac / vast / va" :ja "空の" :examples [{:en "vacant", :ja "空いている、空席の"}]}
+   ; 92
+   {:en "vest / veil / vel" :ja "覆う、包む、着せる" :examples [{:en "invest", :ja "与える、投資する"}]}
+   ; 93, 94
+   {:en "verse" :ja "回す、回る、向ける、向く" :examples [{:en "converse", :ja "会話する"}]}
+   ; 95
+   {:en "vert" :ja "回す、回る、向ける、向く" :examples [{:en "extrovert", :ja "社交的な人、社交的な"}]}
+   ; 96
+   {:en "via / voy" :ja "道、進む" :examples [{:en "deviate", :ja "それる、逸脱する"}]}
+   ; 97
+   {:en "vis(e)" :ja "見る" :examples [{:en "revise", :ja "見直す、修正する、校正する、改訂する"}]}
+   ; 98
+   {:en "view / v(e)y" :ja "見る" :examples [{:en "envy", :ja "うらやましく思う、ねたみ"}]}
+   ; 99
+   {:en "viv" :ja "生きる、生命" :examples [{:en "survive", :ja "生き残る"}]}
+   ; 100
+   {:en "vent / ven(e)" :ja "来る" :examples [{:en "prevent", :ja "妨げる、防止する"}]}
    ])
 
 (defn print-tex [coll]
