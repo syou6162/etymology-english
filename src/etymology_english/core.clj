@@ -249,6 +249,63 @@
    {:en "vent / ven(e)" :ja "来る" :examples [{:en "prevent", :ja "妨げる、防止する"}]}
    ])
 
+(def suffix
+  [{:en "ate / ize / ise / (i)fy / en / ish / er / le"
+    :ja "…にする、…化する" :examples [{:en "terminate", :ja "終わらせる"}]}
+   {:en "ful / ous / y"
+    :ja "…の多い、…の性質がある" :examples [{:en "wonderful", :ja "すばらしい、驚くべき"}]}
+   {:en "able / ible"
+    :ja "…できる" :examples [{:en "etable", :ja "(どうにか)食べられる"}]}
+   {:en "ish / ly / like / some / esque / ique"
+    :ja "…らしい" :examples [{:en "childish", :ja "子供っぽい"}]}
+   {:en "ate / it / ed / ive / ic / al / ial / ical / ual / an / ary / ory / ant / ent / ar / ine / ile / en / id"
+    :ja "…の性質を持つ、…に関する、…に属する、…の" :examples [{:en "separate", :ja "離れた、別々の"}]}
+   {:en "ward"
+    :ja "方向を示す接尾辞" :examples [{:en "southward", :ja "南方へ"}]}
+   {:en "er / eer / or / ar / (i)an / ant / ent / ist / ee / ster"
+    :ja "人を表わす接尾辞" :examples [{:en "painter", :ja "画家"}]}
+   {:en "ry / ory / ary / ery"
+    :ja "場所を表わす接尾辞" :examples [{:en "laboratory", :ja "研究室、実験室"}]}
+   {:en "age"
+    :ja "抽象名詞を作る接尾辞(状態)" :examples [{:en "marriage", :ja "結婚"}]}
+   {:en "ade"
+    :ja "抽象名詞を作る接尾辞(単位、状態)" :examples [{:en "decade", :ja "10年間"}]}
+   {:en "dom"
+    :ja "抽象名詞を作る接尾辞(状態、範囲)" :examples [{:en "kingdom", :ja "王国"}]}
+   {:en "ion / tion / sion"
+    :ja "抽象名詞を作る接尾辞(動作、状態、関係、結果)" :examples [{:en "reaction", :ja "反応"}]}
+   {:en "ment"
+    :ja "抽象名詞を作る接尾辞(動作、状態、結果、手段)" :examples [{:en "document", :ja "文書、書類"}]}
+   {:en "ure"
+    :ja "抽象名詞を作る接尾辞(動作、結果、手段)" :examples [{:en "culture", :ja "文化"}]}
+   {:en "ics"
+    :ja "抽象名詞を作る接尾辞(学問)" :examples [{:en "economics", :ja "経済学"}]}
+   {:en "ery"
+    :ja "抽象名詞を作る接尾辞(状態、性質、身分)" :examples [{:en "slavery", :ja "奴隷制"}]}
+   {:en "hood"
+    :ja "抽象名詞を作る接尾辞(状態、性質、集合)" :examples [{:en "childhood", :ja "幼少時代"}]}
+   {:en "ism"
+    :ja "抽象名詞を作る接尾辞(行動、状態、大系、主義、特性)" :examples [{:en "heroism", :ja "英雄的行為"}]}
+   {:en "al"
+    :ja "抽象名詞を作る接尾辞(動作)" :examples [{:en "arrival", :ja "到着"}]}
+   {:en "ness"
+    :ja "抽象名詞を作る接尾辞(状態、性質)" :examples [{:en "happiness", :ja "幸福"}]}
+   {:en "ty"
+    :ja "抽象名詞を作る接尾辞(状態、性質)" :examples [{:en "liberty", :ja "自由"}]}
+   {:en "ard"
+    :ja "抽象名詞を作る接尾辞(状態、性質)" :examples [{:en "coward", :ja "臆病な"}]}
+   {:en "ancy / ency / cy"
+    :ja "抽象名詞を作る接尾辞(状態、性質)" :examples [{:en "vacacy", :ja "空間、空席"}]}
+   {:en "ance / ence"
+    :ja "抽象名詞を作る接尾辞(状態、性質)" :examples [{:en "clearance", :ja "除去、片づけ"}]}
+   {:en "tude"
+    :ja "抽象名詞を作る接尾辞(状態、性質)" :examples [{:en "magnitude", :ja "大きさ"}]}
+   {:en "th"
+    :ja "抽象名詞を作る接尾辞(状態、性質)" :examples [{:en "warmth", :ja "暖かさ"}]}
+   {:en "let / et / ette / icle / en / le / y / ie"
+    :ja "小さいことを表わす接尾辞" :examples [{:en "starlet", :ja "小さい星"}]}
+   ])
+
 (defn print-tex [coll]
   (println "{\\footnotesize")
   (println "\\begin{longtable}{|p{9em}|p{6em}|p{6em}|p{6em}|}")
