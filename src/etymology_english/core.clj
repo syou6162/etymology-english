@@ -320,6 +320,31 @@
                   "\\\\ \\hline")))
   (println "\\end{longtable}}"))
 
+(def ^:dynamic *max-str-size* 15)
+
+(defn short-text [word]
+  (subs word 0 (min (count word) *max-str-size*)))
+
+(defn print-checklist [coll]
+  (println *column-size*)
+  (println "\\hline")
+  (doseq [idx (range 1 51)]
+    (let [root (rand-nth coll)
+          word (rand-nth (:examples root))]
+      (println (str idx
+                    " & "
+                    (:en word)
+                    " & "
+                    (clojure.string/join "" (repeat 10 "　"))
+                    " & "
+                    (short-text (:ja word))
+                    " & "
+                    (short-text (:ja root))
+                    " & "
+                    (:en root)
+                    " \\\\ \\hline"))))
+  (println "\\end{tabular} \\end{center} \\end{table}"))
+
 (defn -main [& args]
   (binding [*out* (java.io.FileWriter. "prefix.tex")]
     (print-tex prefix))
@@ -329,5 +354,10 @@
   (binding [*out* (java.io.FileWriter. "suffix.tex")
             *column-size* "\\begin{longtable}{|p{9em}|p{8em}|p{5em}|p{5em}|}"]
     (print-tex suffix))
+
+  (binding [*out* (java.io.FileWriter. "checklist_body.tex")
+            *column-size* "\\begin{table} \\begin{center} \\begin{tabular}{|r|l|l|l|l|l|}"]
+    (dotimes [_ 10]
+      (print-checklist root)))
   (println (sh "omake"))
   (shutdown-agents))
