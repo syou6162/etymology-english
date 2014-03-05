@@ -329,10 +329,10 @@
     (subs word 0 (min (count word) *max-str-size*))))
 
 (let [cnt (atom 0)]
-  (defn print-checklist [coll]
+  (defn print-checklist [max-size coll]
     (println *column-size*)
     (println "\\hline")
-    (doseq [idx (range 1 36)]
+    (doseq [idx (range 1 (inc max-size))]
       (let [root (rand-nth coll)
             word (rand-nth (:examples root))]
         (println (str
@@ -349,8 +349,18 @@
                   " & "
                   " \\\\ \\hline"))))
     (println "\\end{tabular}
-\\end{center}
+%\\end{flushright}
+%\\end{flushleft}
+%\\end{center}
 \\end{table}")))
+
+(defn print-empty-table [max-size]
+  (println *column-size*)
+  (println "\\hline")
+  (doseq [idx (range 1 (inc max-size))]
+    (let []
+      (println (str " & & & & & \\\\"))))
+  (println "\\hline \\end{tabular} \\end{table}"))
 
 (defn -main [& args]
   (binding [*out* (java.io.FileWriter. "prefix.tex")]
@@ -362,11 +372,14 @@
             *column-size* "\\begin{longtable}{|p{9em}|p{8em}|p{5em}|p{5em}|}"]
     (print-tex suffix))
 
-  (binding [*out* (java.io.FileWriter. "checklist_body.tex")
-            *column-size* "\\begin{table}
-\\begin{center}
+  (binding [*out* (java.io.FileWriter. "checklist_body.tex")]
+    (binding [*column-size* "\\begin{table}
 \\begin{tabular}{|p{6em}|p{6em}|p{6em}|p{2em}|p{5em}|p{8em}|}"]
-    (dotimes [n 2]
-      (print-checklist root)))
+     (print-checklist 35 root)
+     (print-checklist 15 root)
+)
+    (binding [*column-size* "\\begin{table}
+\\begin{tabular}{|p{6em}p{6em}p{6em}p{2em}p{5em}p{8em}|}"]
+      (print-empty-table 20)))
   (println (sh "omake"))
   (shutdown-agents))
