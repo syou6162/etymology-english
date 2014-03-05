@@ -65,25 +65,87 @@
    {:en "multi" :ja "たくさん" :examples [{:en "multinational", :ja "多国籍の"}]}
    {:en "omni" :ja "すべて" :examples [{:en "omnibus", :ja "バス"}]}])
 
+
+
 (def root
   [; 1
-   {:en "ali / alter / else" :ja "別の、他の" :examples [{:en "alien", :ja "外国の、異質な"}]}
+   {:en "ali / alter / else" :ja "別の、他の"
+    :examples [{:en "alien", :ja "外国の、異質な"}
+               {:en "alienate", :ja "疎外する、遠ざける"}
+               {:en "alternate", :ja "交互にする"}
+               {:en "alter", :ja "作りかえる、改造する、変化する"}
+               {:en "alternative", :ja "二者択一"}
+               {:en "alias", :ja "別名は"}]}
    ; 2
-   {:en "ann / enn" :ja "年" :examples [{:en "annuity", :ja "年金(制度)"}]}
+   {:en "ann / enn" :ja "年"
+    :examples [{:en "annuity", :ja "年金(制度)"}
+               {:en "perennial", :ja "多年生の、永続的な"}
+               {:en "annals", :ja "年代記、記録"}
+               {:en "annual", :ja "年一回の、毎年の"}
+               {:en "biennial", :ja "二年に一度の"}
+               {:en "centennial", :ja "百周年の"}]}
    ; 3
-   {:en "aster / astro / stella" :ja "星" :examples [{:en "disaster", :ja "大惨事、災害"}]}
+   {:en "aster / astro / stella" :ja "星"
+    :examples [{:en "disaster", :ja "大惨事、災害"}
+               {:en "astronomy", :ja "天文学"}
+               {:en "constellation", :ja "星座"}
+               {:en "asteroid", :ja "小惑星"}
+               {:en "astrology", :ja "星占い術"}
+               {:en "astronaut", :ja "宇宙飛行士"}]}
    ; 4
-   {:en "cap" :ja "頭" :examples [{:en "escape", :ja "逃げる、逃れる"}]}
+   {:en "cap" :ja "頭"
+    :examples [{:en "escape", :ja "逃げる、逃れる"}
+               {:en "capital", :ja "資本金、首都、大文字"}
+               {:en "decapitate", :ja "首を切る"}
+               {:en "capable", :ja "能力がある"}
+               {:en "captive", :ja "捕虜"}
+               {:en "capsize", :ja "転覆する"}]}
    ; 5, 6
-   {:en "cede / cess" :ja "進む、行く、譲る" :examples [{:en "necessity", :ja "必要性、必需品"}]}
+   {:en "cede / cess" :ja "進む、行く、譲る"
+    :examples [{:en "necessity", :ja "必要性、必需品"}
+               {:en "ancestor", :ja "祖先、先駆者"}
+               {:en "excess", :ja "過度、超過、暴飲暴食"}
+               {:en "recess", :ja "休憩、休暇"}
+               {:en "incessant", :ja "絶え間のない、ひっりなしの"}
+               {:en "predecessor", :ja "前任者、前にあったもの"}
+               {:en "succeed", :ja "後を継ぐ、相続する"}
+               {:en "secede", :ja "脱退する"}
+               {:en "recede", :ja "後退する、遠ざかる"}
+               {:en "preceed", :ja "進む、続ける"}
+               {:en "concede", :ja "認める、与える、譲る"}
+               {:en "precede", :ja "先立つ、先に起こる"}]}
    ; 7
-   {:en "ceive, cept" :ja "つかむ" :examples [{:en "deceive", :ja "だます"}]}
+   {:en "ceive, cept" :ja "つかむ"
+    :examples [{:en "deceive", :ja "だます"}
+               {:en "perceive", :ja "理解する、気づく、感じる"}
+               {:en "accept", :ja "受け取る、受け入れる"}
+               {:en "reception", :ja "受け入れること、披露宴、受付"}
+               {:en "conceive", :ja "思いつく、想像する、妊娠する"}
+               {:en "except", :ja "…以外に"}]}
    ; 8
-   {:en "close / clude" :ja "閉じる" :examples [{:en "disclose", :ja "発表する、暴露する"}]}
+   {:en "close / clude" :ja "閉じる"
+    :examples [{:en "disclose", :ja "発表する、暴露する"}
+               {:en "conclude", :ja "結論を下す、決着をつける"}
+               {:en "exclude", :ja "除外する、締め出す"}
+               {:en "enclose", :ja "囲む、同封する"}
+               {:en "include", :ja "含む"}
+               {:en "secluded", :ja "人里離れた"}]}
    ; 9
-   {:en "cor(d)" :ja "心" :examples [{:en "core", :ja "芯、中心部"}]}
+   {:en "cor(d)" :ja "心"
+    :examples [{:en "core", :ja "芯、中心部"}
+               {:en "accord", :ja "一致、協定"}
+               {:en "courage", :ja "勇気"}
+               {:en "encourage", :ja "勇気づける、促す"}
+               {:en "discourage", :ja "落胆させる、思いとどまらせる、阻止する"}
+               {:en "cordial", :ja "心からの、思いやりのある"}]}
    ; 10
-   {:en "cre / cru" :ja "生む、成長する" :examples [{:en "increase", :ja "増加する、増加"}]}
+   {:en "cre / cru" :ja "生む、成長する"
+    :examples [{:en "increase", :ja "増加する、増加"}
+               {:en "decrease", :ja "減少する"}
+               {:en "recruit", :ja "新しく入れる、採用する"}
+               {:en "create", :ja "創造する"}
+               {:en "crew", :ja "乗組員、乗務員"}
+               {:en "accrue", :ja "(権力、利益が)生じる、増える"}]}
    ; 11
    {:en "cro / cru" :ja "十字、曲げる" :examples [{:en "crossroad", :ja "十字路、交差点、岐路"}]}
    ; 12
