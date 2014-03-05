@@ -3,5 +3,7 @@ DVIPDFM = dvipdfmx
 DVIPDFMFLAGS = -p a4
 
 LaTeXDocument(main, main)
+LaTeXDocument(checklist, checklist)
 
 .DEFAULT: main.pdf main.dvi
+.DEFAULT: checklist.pdf checklist.dvi
