@@ -389,7 +389,7 @@
 
   (binding [*out* (java.io.FileWriter. "checklist_body.tex")]
     (binding [*column-size* "\\begin{table}
-\\begin{tabular}{|p{6em}|p{6em}|p{6em}|p{2em}|p{5em}|p{8em}|}"]
+\\begin{tabular}{|p{7em}|p{6em}|p{6em}|p{2em}|p{5em}|p{7em}|}"]
      (print-checklist 35 root)
      (print-checklist 15 root)
 )
