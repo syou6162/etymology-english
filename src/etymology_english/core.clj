@@ -147,23 +147,77 @@
                {:en "crew", :ja "乗組員、乗務員"}
                {:en "accrue", :ja "(権力、利益が)生じる、増える"}]}
    ; 11
-   {:en "cro / cru" :ja "十字、曲げる" :examples [{:en "crossroad", :ja "十字路、交差点、岐路"}]}
+   {:en "cro / cru" :ja "十字、曲げる"
+    :examples [{:en "crossroad", :ja "十字路、交差点、岐路"}
+               {:en "crucial", :ja "決定的な"}
+               {:en "crucify", :ja "はりつけにする、責め苦しめる"}
+               {:en "cruise", :ja "巡遊する、巡航する"}
+               {:en "crusade", :ja "十字軍、革命運動"}
+               {:en "crouch", :ja "かがむ"}]}
    ; 12
-   {:en "cur / cour / cor" :ja "流れる、走る" :examples [{:en "excursion", :ja "遠足、小旅行"}]}
+   {:en "cur / cour / cor" :ja "流れる、走る"
+    :examples [{:en "excursion", :ja "遠足、小旅行"}
+               {:en "currency", :ja "通貨、流通"}
+               {:en "recourse", :ja "頼みの綱、頼ること"}
+               {:en "occur", :ja "起こる、発生する"}
+               {:en "concur", :ja "一致する、同時に起こる"}
+               {:en "recur", :ja "再発する"}]}
    ; 13
-   {:en "dict" :ja "話す、言う、示す" :examples [{:en "contradict", :ja "矛盾する、否定する"}]}
+   {:en "dict" :ja "話す、言う、示す"
+    :examples [{:en "contradict", :ja "矛盾する、否定する"}
+               {:en "verdict", :ja "判決、判断、決定"}
+               {:en "addict", :ja "中毒者"}
+               {:en "predict", :ja "予言する、予測する"}
+               {:en "dictate", :ja "書き取らせる、命令する"}
+               {:en "indict", :ja "起訴する、非難する"}]}
    ; 14
-   {:en "duct" :ja "導く" :examples [{:en "product", :ja "製品、生産品"}]}
+   {:en "duct" :ja "導く"
+    :examples [{:en "product", :ja "製品、生産品"}
+               {:en "abduct", :ja "誘拐する"}
+               {:en "induct", :ja "就任させる、任命する"}
+               {:en "conduct", :ja "導く"}
+               {:en "deduct", :ja "差し引く、控除する"}
+               {:en "by-product", :ja "副産物、副作用"}]}
    ; 15
-   {:en "duce" :ja "導く" :examples [{:en "produce", :ja "生産する、取り出す"}]}
+   {:en "duce" :ja "導く"
+    :examples [{:en "produce", :ja "生産する、取り出す"}
+               {:en "educate", :ja "教育する"}
+               {:en "reduce", :ja "縮小する"}
+               {:en "introduce", :ja "紹介する、導入する"}
+               {:en "seduce", :ja "誘惑する、そそのかす"}
+               {:en "induce", :ja "…する気にさせる"}]}
    ; 16
-   {:en "equ" :ja "平らな、等しい" :examples [{:en "equator", :ja "赤道"}]}
+   {:en "equ" :ja "平らな、等しい"
+    :examples [{:en "equator", :ja "赤道"}
+               {:en "adequate", :ja "十分な、ちょうど良い、適した"}
+               {:en "equivocal", :ja "紛らわしい、はっきりしない、いかがわしい"}
+               {:en "equal", :ja "等しい、平等の、耐えられる"}
+               {:en "equivalent", :ja "同等のもの"}
+               {:en "equalize", :ja "等しくする、同一にする"}]}
    ; 17
-   {:en "fa(m) / fan(n) / phe" :ja "話す" :examples [{:en "infantry", :ja "歩兵(隊)"}]}
+   {:en "fa(m) / fan(n) / phe" :ja "話す"
+    :examples [{:en "infantry", :ja "歩兵(隊)"}
+               {:en "defame", :ja "中傷する"}
+               {:en "prophet", :ja "予言者"}
+               {:en "fatal", :ja "運命を決する、致命的な"}
+               {:en "infant", :ja "幼児"}
+               {:en "fabulous", :ja "驚くべき、すばらしい、伝説の"}]}
    ; 18
-   {:en "fac(t)" :ja "作る、する" :examples [{:en "facile", :ja "容易な、簡単な、器用な"}]}
+   {:en "fac(t)" :ja "作る、する"
+    :examples [{:en "facile", :ja "容易な、簡単な、器用な"}
+               {:en "facilitate", :ja "促進する、容易にする"}
+               {:en "faction", :ja "派閥"}
+               {:en "factor", :ja "要素、要因"}
+               {:en "faculty", :ja "才能、機能、学部"}
+               {:en "facititious", :ja "うその、わざとらしい、見せかけの"}]}
    ; 19
-   {:en "fect" :ja "作る、する" :examples [{:en "defect", :ja "欠点、欠陥、傷"}]}
+   {:en "fect" :ja "作る、する"
+    :examples [{:en "defect", :ja "欠点、欠陥、傷"}
+               {:en "effect", :ja "結果、効果"}
+               {:en "affect", :ja "影響する、…のふりをする"}
+               {:en "infect", :ja "伝染する、感染する"}
+               {:en "confectionery", :ja "菓子店、菓子類"}
+               {:en "prefecture", :ja "県、府"}]}
    ; 20, 21
    {:en "fer" :ja "運ぶ、産む、耐える" :examples [{:en "offer", :ja "申し出、誘い"}]}
    ; 22
