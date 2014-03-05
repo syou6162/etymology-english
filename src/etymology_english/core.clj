@@ -393,8 +393,12 @@
 
 (let [cnt (atom 0)
       year (time/year (time/now))
-      month (time/month (time/now))
-      day (time/day (time/now))
+      month (->> (time/now)
+                 (time/month)
+                 (format "%02d"))
+      day (->> (time/now)
+               (time/day)
+               (format "%02d"))
       filename (str "logs/" year "-" month "-" day ".csv")
       appeared? (atom #{})
       get-next-root (fn [coll]
