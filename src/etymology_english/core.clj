@@ -320,30 +320,37 @@
                   "\\\\ \\hline")))
   (println "\\end{longtable}}"))
 
-(def ^:dynamic *max-str-size* 15)
+(def ^:dynamic *max-str-size* 7)
 
-(defn short-text [word]
-  (subs word 0 (min (count word) *max-str-size*)))
+(defn short-text [word']
+  (let [word (-> word'
+                 (clojure.string/replace " / " ",")
+                 (clojure.string/replace "、" ","))]
+    (subs word 0 (min (count word) *max-str-size*))))
 
-(defn print-checklist [coll]
-  (println *column-size*)
-  (println "\\hline")
-  (doseq [idx (range 1 51)]
-    (let [root (rand-nth coll)
-          word (rand-nth (:examples root))]
-      (println (str idx
-                    " & "
-                    (:en word)
-                    " & "
-                    (clojure.string/join "" (repeat 10 "　"))
-                    " & "
-                    (short-text (:ja word))
-                    " & "
-                    (short-text (:ja root))
-                    " & "
-                    (:en root)
-                    " \\\\ \\hline"))))
-  (println "\\end{tabular} \\end{center} \\end{table}"))
+(let [cnt (atom 0)]
+  (defn print-checklist [coll]
+    (println *column-size*)
+    (println "\\hline")
+    (doseq [idx (range 1 36)]
+      (let [root (rand-nth coll)
+            word (rand-nth (:examples root))]
+        (println (str
+                  (short-text (:ja word))
+                  " & "
+                  (binding [*max-str-size* 14]
+                    (short-text (:en root)))
+                  " & "
+                  (short-text (:ja root))
+                  " & "
+                  (swap! cnt inc)
+                  " & "
+                  (:en word)
+                  " & "
+                  " \\\\ \\hline"))))
+    (println "\\end{tabular}
+\\end{center}
+\\end{table}")))
 
 (defn -main [& args]
   (binding [*out* (java.io.FileWriter. "prefix.tex")]
@@ -356,8 +363,10 @@
     (print-tex suffix))
 
   (binding [*out* (java.io.FileWriter. "checklist_body.tex")
-            *column-size* "\\begin{table} \\begin{center} \\begin{tabular}{|r|l|l|l|l|l|}"]
-    (dotimes [_ 10]
+            *column-size* "\\begin{table}
+\\begin{center}
+\\begin{tabular}{|p{6em}|p{6em}|p{6em}|p{2em}|p{5em}|p{8em}|}"]
+    (dotimes [n 2]
       (print-checklist root)))
   (println (sh "omake"))
   (shutdown-agents))
