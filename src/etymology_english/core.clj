@@ -1,5 +1,6 @@
 (ns etymology-english.core
-  (:use [clojure.java.shell :only [sh]]))
+  (:use [clojure.java.shell :only [sh]])
+  (:require [clj-time.core :as time]))
 
 (def prefix
   [{:en "en" :ja "にする" :examples [{:en "enrich", :ja "豊かにする"}]}
@@ -328,13 +329,27 @@
                  (clojure.string/replace "、" ","))]
     (subs word 0 (min (count word) *max-str-size*))))
 
-(let [cnt (atom 0)]
+(let [cnt (atom 0)
+      year (time/year (time/now))
+      month (time/month (time/now))
+      day (time/day (time/now))
+      filename (str "logs/" year "-" month "-" day ".csv")
+      appeared? (atom #{})
+      get-next-root (fn [coll]
+                      (let [root (rand-nth coll)]
+                        (if (contains? @appeared? root)
+                          (recur coll)
+                          (do
+                            (swap! appeared? conj root)
+                            root))))]
+  (spit filename "")
   (defn print-checklist [max-size coll]
     (println *column-size*)
     (println "\\hline")
     (doseq [idx (range 1 (inc max-size))]
-      (let [root (rand-nth coll)
+      (let [root (get-next-root coll)
             word (rand-nth (:examples root))]
+        (spit filename (str (:en word) ",+\n") :append true)
         (println (str
                   (short-text (:ja word))
                   " & "
