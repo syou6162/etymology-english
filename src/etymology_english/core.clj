@@ -219,23 +219,88 @@
                {:en "confectionery", :ja "菓子店、菓子類"}
                {:en "prefecture", :ja "県、府"}]}
    ; 20, 21
-   {:en "fer" :ja "運ぶ、産む、耐える" :examples [{:en "offer", :ja "申し出、誘い"}]}
+   {:en "fer" :ja "運ぶ、産む、耐える"
+    :examples [{:en "offer", :ja "申し出、誘い"}
+               {:en "fertile", :ja "肥沃な、多産の"}
+               {:en "conference", :ja "会議、相談"}
+               {:en "refer", :ja "参照する、触れる"}
+               {:en "defer", :ja "延ばす、延期する"}
+               {:en "circumfence", :ja "円周、周囲"}
+               {:en "prefer", :ja "好む、好きである"}
+               {:en "differ", :ja "違う、異なる"}
+               {:en "indifferent", :ja "無関心な、無頓着な、どうでもいい"}
+               {:en "transfer", :ja "移動させる、移す"}
+               {:en "differentiate", :ja "区別する、識別する"}]}
    ; 22
-   {:en "fic" :ja "作る、する" :examples [{:en "deficient", :ja "不足する"}]}
+   {:en "fic" :ja "作る、する"
+    :examples [{:en "deficient", :ja "不足する"}
+               {:en "sacrifice", :ja "犠牲にする"}
+               {:en "sufficient", :ja "十分な"}
+               {:en "efficient", :ja "有能な、効率的な"}
+               {:en "proficient", :ja "熟達した、堪能な"}
+               {:en "artificial", :ja "人工的な、不自然な"}]}
    ; 23
-   {:en "fin" :ja "終わる、境界" :examples [{:en "fine", :ja "罰金を科す、罰金、すばらしい、元気な、細かい"}]}
+   {:en "fin" :ja "終わる、境界"
+    :examples [{:en "fine", :ja "罰金を科す、罰金、すばらしい、元気な、細かい"}
+               {:en "finance", :ja "財源、財政"}
+               {:en "infinite", :ja "無限の、計り知れない"}
+               {:en "refine", :ja "精製する、洗練する"}
+               {:en "define", :ja "定める、定義する"}
+               {:en "confine", :ja "制限する、監禁する"}]}
    ; 24
-   {:en "flo / flu" :ja "流れる" :examples [{:en "influence", :ja "影響(力)"}]}
+   {:en "flo / flu" :ja "流れる"
+    :examples [{:en "influence", :ja "影響(力)"}
+               {:en "superfluous", :ja "十二分な、不要な"}
+               {:en "fluctuate", :ja "変動する、動揺する"}
+               {:en "flood", :ja "洪水、多数"}
+               {:en "fluent", :ja "流暢な"}
+               {:en "affluent", :ja "裕福な、豊富な"}]}
    ; 25
-   {:en "form" :ja "形" :examples [{:en "reform", :ja "改革する、改善する"}]}
+   {:en "form" :ja "形"
+    :examples [{:en "reform", :ja "改革する、改善する"}
+               {:en "inform", :ja "知らせる"}
+               {:en "conform", :ja "従う、順応させる"}
+               {:en "formulate", :ja "公式化する"}
+               {:en "perform", :ja "実行する、演じる"}
+               {:en "transform", :ja "変える"}]}
    ; 26
-   {:en "fuse / fut" :ja "注ぐ、融ける" :examples [{:en "refuse", :ja "断わる、拒絶する"}]}
+   {:en "fuse / fut" :ja "注ぐ、融ける"
+    :examples [{:en "refuse", :ja "断わる、拒絶する"}
+               {:en "profuse", :ja "豊富な、気前よく与える"}
+               {:en "confuse", :ja "混同する、混乱させる"}
+               {:en "transfusion", :ja "輸血、注入、移入"}
+               {:en "refute", :ja "論破する、反駁する"}
+               {:en "futile", :ja "無駄な、無益な"}]}
    ; 27, 28
-   {:en "gen" :ja "生まれる、種" :examples [{:en "genetic", :ja "遺伝子の"}]}
+   {:en "gen" :ja "生まれる、種"
+    :examples [{:en "genetic", :ja "遺伝子の"}
+               {:en "generate", :ja "生み出す、発生させる"}
+               {:en "general", :ja "一般的な、全般的な"}
+               {:en "generous", :ja "気前のよい、豊富な"}
+               {:en "regenerate", :ja "再生する、改心させる"}
+               {:en "degenerate", :ja "退化する、悪化する"}
+               {:en "indigenous", :ja "固有の、原産の、生まれつきの"}
+               {:en "genuine", :ja "本物の、純粋な"}
+               {:en "congenital", :ja "先天的な"}
+               {:en "genial", :ja "のこやかな、温和な"}
+               {:en "ingenious", :ja "独創的な、巧妙な"}
+               {:en "congenial", :ja "気の合った、同じ性質の"}]}
    ; 29
-   {:en "guard / war(d)" :ja "見守る" :examples [{:en "award", :ja "与える、裁定する、賞品、賞金、裁定額"}]}
+   {:en "guard / war(d)" :ja "見守る"
+    :examples [{:en "award", :ja "与える、裁定する、賞品、賞金、裁定額"}
+               {:en "reward", :ja "報いる、報酬"}
+               {:en "regard", :ja "考える、評価する"}
+               {:en "regardless", :ja "注意しない、無頓着な"}
+               {:en "ward", :ja "病棟、区、後見"}
+               {:en "warden", :ja "監視人、刑務所長"}]}
    ; 30
-   {:en "it" :ja "行く" :examples [{:en "exit", :ja "出口、退去する、立ち去る"}]}
+   {:en "it" :ja "行く"
+    :examples [{:en "exit", :ja "出口、退去する、立ち去る"}
+               {:en "transit", :ja "通貨、運送、輸送"}
+               {:en "orbit", :ja "軌道、行路"}
+               {:en "initiate", :ja "入会させる、始める"}
+               {:en "ambition", :ja "野心、念願、夢"}
+               {:en "obituary", :ja "死亡記事"}]}
    ; 31
    {:en "ject / jet" :ja "投げる" :examples [{:en "reject", :ja "拒否する、拒絶する"}]}
    ; 32
