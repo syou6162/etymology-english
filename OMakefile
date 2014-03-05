@@ -1,9 +1,10 @@
 LATEX = platex
 DVIPDFM = dvipdfmx
+
 DVIPDFMFLAGS = -p a4
-
 LaTeXDocument(main, main)
-LaTeXDocument(checklist, checklist)
-
 .DEFAULT: main.pdf main.dvi
+
+DVIPDFMFLAGS = -l -p a4
+LaTeXDocument(checklist, checklist)
 .DEFAULT: checklist.pdf checklist.dvi
