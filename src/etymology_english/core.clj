@@ -594,13 +594,14 @@
     (set-filename! date)
     (with-redefs [rand (fn [n] (* n (. seed nextDouble)))]
       (binding [*out* (java.io.FileWriter. "checklist_body.tex")]
-        (binding [*column-size* "\\begin{table}
+        (binding [*column-size* "\\begin{table}[!h]
 \\begin{tabular}{|p{7em}|p{6em}|p{6em}|p{2em}|p{5em}|p{7em}|}"]
           (print-checklist 35 root)
           (print-checklist 15 root))
-        (binding [*column-size* "\\begin{table}
+        (println (str year "-" month "-" day ".pdf"))
+        (binding [*column-size* "\\begin{table}[!h]
 \\begin{tabular}{|p{6em}p{6em}p{6em}p{2em}p{5em}p{8em}|}"]
-          (print-empty-table 20))))
+          (print-empty-table 18))))
     (println (sh "omake"))
     (sh "cp" "checklist.pdf" (str year "-" month "-" day ".pdf")))
   (shutdown-agents))
