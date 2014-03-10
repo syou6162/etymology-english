@@ -1,6 +1,8 @@
 (ns etymology-english.core
   (:use [clojure.java.shell :only [sh]])
-  (:require [clj-time.core :as time]))
+  (:use [clj-time.format :only (parse formatter)])
+  (:require [clj-time.core :as time])
+  (:require [clojure.tools.cli :as cli]))
 
 (def prefix
   [{:en "en" :ja "にする" :examples [{:en "enrich", :ja "豊かにする"}]}
@@ -64,8 +66,6 @@
    {:en "mill" :ja "1000の" :examples [{:en "mile", :ja "マイル"}]}
    {:en "multi" :ja "たくさん" :examples [{:en "multinational", :ja "多国籍の"}]}
    {:en "omni" :ja "すべて" :examples [{:en "omnibus", :ja "バス"}]}])
-
-
 
 (def root
   [; 1
@@ -511,14 +511,7 @@
     (subs word 0 (min (count word) *max-str-size*))))
 
 (let [cnt (atom 0)
-      year (time/year (time/now))
-      month (->> (time/now)
-                 (time/month)
-                 (format "%02d"))
-      day (->> (time/now)
-               (time/day)
-               (format "%02d"))
-      filename (str "logs/" year "-" month "-" day ".csv")
+      filename (atom nil)
       appeared? (atom #{})
       get-next-root (fn [coll]
                       (let [root (rand-nth coll)]
@@ -527,14 +520,24 @@
                           (do
                             (swap! appeared? conj root)
                             root))))]
-  (spit filename "")
+  (defn set-filename! [date]
+    (let [year (time/year date)
+          month (->> date
+                     (time/month)
+                     (format "%02d"))
+          day (->> date
+                   (time/day)
+                   (format "%02d"))
+          file (str "logs/" year "-" month "-" day ".csv")]
+      (spit file "")
+      (reset! filename file)))
   (defn print-checklist [max-size coll]
     (println *column-size*)
     (println "\\hline")
     (doseq [idx (range 1 (inc max-size))]
       (let [root (get-next-root coll)
             word (rand-nth (:examples root))]
-        (spit filename (str (:en word) ",+\n") :append true)
+        (spit @filename (str (:en word) ",+\n") :append true)
         (println (str
                   (short-text (:ja word))
                   " & "
@@ -562,6 +565,12 @@
       (println (str " & & & & & \\\\"))))
   (println "\\hline \\end{tabular} \\end{table}"))
 
+(defn- get-cli-opts [args]
+  (cli/cli args
+           ["-h" "--help" "Show help" :default false :flag true]
+           ["--date" :default (time/today)
+            :parse-fn #(parse (formatter "yyyy-MM-dd") %)]))
+
 (defn -main [& args]
   (binding [*out* (java.io.FileWriter. "prefix.tex")]
     (print-tex prefix))
@@ -572,14 +581,26 @@
             *column-size* "\\begin{longtable}{|p{9em}|p{8em}|p{5em}|p{5em}|}"]
     (print-tex suffix))
 
-  (binding [*out* (java.io.FileWriter. "checklist_body.tex")]
-    (binding [*column-size* "\\begin{table}
+  (let [[options rest-args banner] (get-cli-opts args)
+        date (:date options)
+        year (time/year date)
+        month (->> date
+                   (time/month)
+                   (format "%02d"))
+        day (->> date
+                 (time/day)
+                 (format "%02d"))
+        seed (java.util.Random. (hash date))]
+    (set-filename! date)
+    (with-redefs [rand (fn [n] (* n (. seed nextDouble)))]
+      (binding [*out* (java.io.FileWriter. "checklist_body.tex")]
+        (binding [*column-size* "\\begin{table}
 \\begin{tabular}{|p{7em}|p{6em}|p{6em}|p{2em}|p{5em}|p{7em}|}"]
-     (print-checklist 35 root)
-     (print-checklist 15 root)
-)
-    (binding [*column-size* "\\begin{table}
+          (print-checklist 35 root)
+          (print-checklist 15 root))
+        (binding [*column-size* "\\begin{table}
 \\begin{tabular}{|p{6em}p{6em}p{6em}p{2em}p{5em}p{8em}|}"]
-      (print-empty-table 20)))
-  (println (sh "omake"))
+          (print-empty-table 20))))
+    (println (sh "omake"))
+    (sh "cp" "checklist.pdf" (str year "-" month "-" day ".pdf")))
   (shutdown-agents))
