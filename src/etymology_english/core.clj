@@ -380,15 +380,45 @@
                {:en "transmit", :ja "伝える、移す、感染させる"}
                {:en "emit", :ja "発する、放出する"}]}
    ; 41
-   {:en "mode" :ja "型、尺度" :examples [{:en "remodel", :ja "建て替える、形を直す"}]}
+   {:en "mode" :ja "型、尺度"
+    :examples [{:en "remodel", :ja "建て替える、形を直す"}
+               {:en "modest", :ja "控えめな、謙虚な"}
+               {:en "accommodate", :ja "適応させる、収容する"}
+               {:en "mold", :ja "型に入れて作る、形成する"}
+               {:en "moderate", :ja "適度の、節度のある"}
+               {:en "modify", :ja "修正する、変更する"}]}
    ; 42
-   {:en "mot / mob / mov" :ja "動く" :examples [{:en "emotion", :ja "感情、情緒"}]}
+   {:en "mot / mob / mov" :ja "動く"
+    :examples [{:en "emotion", :ja "感情、情緒"}
+               {:en "promote", :ja "昇進させる、促進する"}
+               {:en "demote", :ja "降格させる"}
+               {:en "motive", :ja "動機、目的"}
+               {:en "remote", :ja "遠い、へんぴな"}
+               {:en "remove", :ja "取り除く、脱ぐ、解雇する"}]}
    ; 43
-   {:en "na(n)t / nai" :ja "生まれる" :examples [{:en "pregnant", :ja "妊娠している"}]}
+   {:en "na(n)t / nai" :ja "生まれる"
+    :examples [{:en "pregnant", :ja "妊娠している"}
+               {:en "innate", :ja "生まれつきの、固有の"}
+               {:en "naturalize", :ja "帰化させる、順応させる"}
+               {:en "nationalize", :ja "国有化する"}
+               {:en "denationalize", :ja "民営化する"}
+               {:en "natal", :ja "出生の、出産の"}]}
    ; 44
-   {:en "nom(in) / onym / noun" :ja "名前、伝える" :examples [{:en "pronounce", :ja "発音する"}]}
+   {:en "nom(in) / onym / noun" :ja "名前、伝える"
+    :examples [{:en "pronounce", :ja "発音する"}
+               {:en "denounce", :ja "告発する、(公然と)非難する"}
+               {:en "anonymous", :ja "匿名の、名の分からない"}
+               {:en "nominate", :ja "指名する、任命する"}
+               {:en "renounce", :ja "拒否する、断念する"}
+               {:en "renowned", :ja "有名な"}]}
    ; 45
-   {:en "ord(er)" :ja "命令、順序" :examples [{:en "disorder", :ja "無秩序、混乱、障害"}]}
+   {:en "ord(er)" :ja "命令、順序"
+    :examples [{:en "disorder", :ja "無秩序、混乱、障害"}
+               {:en "ordinary", :ja "普通の、平凡な"}
+               {:en "extraordinary", :ja "並外れた、驚くべき、異常な"}
+               {:en "orderly", :ja "整然とした、整理された"}
+               {:en "subordinate", :ja "下に置く、副次的な、従属する"}
+               {:en "coordinate", :ja "対等にする、調整する"}]}
    ; 46
    {:en "part" :ja "分ける、部分" :examples [{:en "partial", :ja "部分的な、えこひいきする、とても好きな"}]}
    ; 47
