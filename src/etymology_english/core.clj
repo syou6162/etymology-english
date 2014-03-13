@@ -302,23 +302,83 @@
                {:en "ambition", :ja "野心、念願、夢"}
                {:en "obituary", :ja "死亡記事"}]}
    ; 31
-   {:en "ject / jet" :ja "投げる" :examples [{:en "reject", :ja "拒否する、拒絶する"}]}
+   {:en "ject / jet" :ja "投げる"
+    :examples [{:en "reject", :ja "拒否する、拒絶する"}
+               {:en "eject", :ja "置い出す、取り出す、立ち退かせる"}
+               {:en "inject", :ja "注入する、注射する"}
+               {:en "subject", :ja "服従させる"}
+               {:en "object", :ja "物体、対象、目的"}
+               {:en "conjecture", :ja "憶測する、推測する"}]}
    ; 32
-   {:en "just / jur / jud" :ja "正しい、法" :examples [{:en "adjust", :ja "調整する、適合させる"}]}
+   {:en "just / jur / jud" :ja "正しい、法"
+    :examples [{:en "adjust", :ja "調整する、適合させる"}
+               {:en "justify", :ja "正当化する"}
+               {:en "injure", :ja "傷つける"}
+               {:en "justice", :ja "正義、公正、正当性"}
+               {:en "jury", :ja "陪審員"}
+               {:en "prejudice", :ja "偏見、先入観"}]}
    ; 33
-   {:en "lea(g) / li(g) / ly" :ja "結ぶ" :examples [{:en "religion", :ja "宗教"}]}
+   {:en "lea(g) / li(g) / ly" :ja "結ぶ"
+    :examples [{:en "religion", :ja "宗教"}
+               {:en "rely", :ja "頼る"}
+               {:en "ally", :ja "同盟する、結びつく"}
+               {:en "alliance", :ja "同盟、提携、協調"}
+               {:en "liable", :ja "法的な責任がある、…しがちである"}
+               {:en "oblige", :ja "余儀なくさせる、義務づける、恩義を施す"}]}
    ; 34
-   {:en "lect / leg / lig" :ja "集める、選ぶ" :examples [{:en "recollect", :ja "思い出す、記憶する"}]}
+   {:en "lect / leg / lig" :ja "集める、選ぶ"
+    :examples [{:en "recollect", :ja "思い出す、記憶する"}
+               {:en "neglect", :ja "無視する、怠る、…し忘れる"}
+               {:en "eligible", :ja "資格のある、適格の"}
+               {:en "elect", :ja "(選挙で)選ぶ"}
+               {:en "intellect", :ja "知性"}
+               {:en "intelligence", :ja "知能、情報"}]}
    ; 35
-   {:en "man(i) / man(u)" :ja "手" :examples [{:en "manuscript", :ja "原稿、写本、手紙"}]}
+   {:en "man(i) / man(u)" :ja "手"
+    :examples [{:en "manuscript", :ja "原稿、写本、手紙"}
+               {:en "manifest", :ja "明らかな"}
+               {:en "manacle", :ja "手錠、手かせ、足かせ"}
+               {:en "manage", :ja "経営する、何とかやり遂げる"}
+               {:en "manipulate", :ja "操る、操作する"}
+               {:en "manure", :ja "肥料、肥やし"}]}
    ; 36
-   {:en "med / mid" :ja "中間" :examples [{:en "mediate", :ja "仲介する、調停する"}]}
+   {:en "med / mid" :ja "中間"
+    :examples [{:en "mediate", :ja "仲介する、調停する"}
+               {:en "intermediate", :ja "中間の、中級の"}
+               {:en "immediate", :ja "即座の、直接の"}
+               {:en "mean", :ja "平均の、並の"}
+               {:en "medieval", :ja "中世の、旧式の"}
+               {:en "mediocre", :ja "並の、二流の"}]}
    ; 37
-   {:en "memo / min" :ja "記憶、思い起こす" :examples [{:en "immemorial", :ja "太古の、大昔の"}]}
+   {:en "memo / min" :ja "記憶、思い起こす"
+    :examples [{:en "immemorial", :ja "太古の、大昔の"}
+               {:en "commemorate", :ja "記念する、祝う"}
+               {:en "reminiscent", :ja "思い出させる、しのばせる"}
+               {:en "memorize", :ja "暗記する、覚える"}
+               {:en "remember", :ja "思い出す、覚えている"}
+               {:en "remind", :ja "思い出させる、気づかせる"}]}
    ; 38
-   {:en "mini" :ja "小さい" :examples [{:en "minor", :ja "小さい方の、重要でない、未成年者"}]}
+   {:en "mini" :ja "小さい"
+    :examples [{:en "minor", :ja "小さい方の、重要でない、未成年者"}
+               {:en "diminish", :ja "減少する、小さくする"}
+               {:en "minister", :ja "大臣、公使"}
+               {:en "minute", :ja "分、微細な、微小な"}
+               {:en "administer", :ja "治める、施行する、管理する"}
+               {:en "mince", :ja "細かく刻む"}]}
    ; 39, 40
-   {:en "miss / mise / mit" :ja "送る" :examples [{:en "dismiss", :ja "解散させる、退ける"}]}
+   {:en "miss / mise / mit" :ja "送る"
+    :examples [{:en "dismiss", :ja "解散させる、退ける"}
+               {:en "promise", :ja "約束する"}
+               {:en "compromise", :ja "妥協"}
+               {:en "admit", :ja "認める、(入場、入学を)認める"}
+               {:en "omit", :ja "省略する、除外する、怠る"}
+               {:en "permit", :ja "許可する"}
+               {:en "commit", :ja "ゆだねる、犯す"}
+               {:en "remit", :ja "送金する、差し戻す"}
+               {:en "intermittent", :ja "断続的な"}
+               {:en "submit", :ja "提出する、屈服する、服従させる"}
+               {:en "transmit", :ja "伝える、移す、感染させる"}
+               {:en "emit", :ja "発する、放出する"}]}
    ; 41
    {:en "mode" :ja "型、尺度" :examples [{:en "remodel", :ja "建て替える、形を直す"}]}
    ; 42
