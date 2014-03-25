@@ -655,43 +655,67 @@
       (println (str " & & & & & \\\\"))))
   (println "\\hline \\end{tabular} \\end{table}"))
 
+(defn filter-by-mistaken-word-list [mistaken-word-list words]
+  (->> words
+       (map
+        (fn [m]
+          (reduce
+           (fn [result example]
+             (conj result (assoc m :examples [example])))
+           [] (get m :examples))))
+       (reduce into [])
+       (filter
+        (fn [w] (contains? mistaken-word-list (-> w :examples first :en))))
+       (vec)))
+
 (defn- get-cli-opts [args]
   (cli/cli args
            ["-h" "--help" "Show help" :default false :flag true]
+           ["--whole-list" :default false :flag true]
+           ["--use-mistaken-word-list" :default false :flag true]
            ["--date" :default (time/today)
             :parse-fn #(parse (formatter "yyyy-MM-dd") %)]))
 
 (defn -main [& args]
-  (binding [*out* (java.io.FileWriter. "prefix.tex")]
-    (print-tex prefix))
-  (binding [*out* (java.io.FileWriter. "root.tex")
-            *column-size* "\\begin{longtable}{|p{9em}|p{6em}|p{5em}|p{7em}|}"]
-    (print-tex root))
-  (binding [*out* (java.io.FileWriter. "suffix.tex")
-            *column-size* "\\begin{longtable}{|p{9em}|p{8em}|p{5em}|p{5em}|}"]
-    (print-tex suffix))
-
-  (let [[options rest-args banner] (get-cli-opts args)
-        date (:date options)
-        year (time/year date)
-        month (->> date
-                   (time/month)
+  (let [[options rest-args banner] (get-cli-opts args)]
+    (when (:help options)
+      (println banner)
+      (System/exit 0))
+    (when (:whole-list options)
+      (binding [*out* (java.io.FileWriter. "prefix.tex")]
+        (print-tex prefix))
+      (binding [*out* (java.io.FileWriter. "root.tex")
+                *column-size* "\\begin{longtable}{|p{9em}|p{6em}|p{5em}|p{7em}|}"]
+        (print-tex root))
+      (binding [*out* (java.io.FileWriter. "suffix.tex")
+                *column-size* "\\begin{longtable}{|p{9em}|p{8em}|p{5em}|p{5em}|}"]
+        (print-tex suffix))
+      (println (sh "omake"))
+      (System/exit 0))
+    (let [date (:date options)
+          year (time/year date)
+          month (->> date
+                     (time/month)
+                     (format "%02d"))
+          day (->> date
+                   (time/day)
                    (format "%02d"))
-        day (->> date
-                 (time/day)
-                 (format "%02d"))
-        seed (java.util.Random. (hash date))]
-    (set-filename! date)
-    (with-redefs [rand (fn [n] (* n (. seed nextDouble)))]
-      (binding [*out* (java.io.FileWriter. "checklist_body.tex")]
-        (binding [*column-size* "\\begin{table}[!h]
+          seed (java.util.Random. (hash date))
+          root' (if (:use-mistaken-word-list options)
+                  (let [mistaken-word-list (set (vec (line-seq (java.io.BufferedReader. *in*))))]
+                    (filter-by-mistaken-word-list mistaken-word-list root))
+                  root)]
+      (set-filename! date)
+      (with-redefs [rand (fn [n] (* n (. seed nextDouble)))]
+        (binding [*out* (java.io.FileWriter. "checklist_body.tex")]
+          (binding [*column-size* "\\begin{table}[!h]
 \\begin{tabular}{|p{7em}|p{6em}|p{6em}|p{2em}|p{5em}|p{7em}|}"]
-          (print-checklist 35 root)
-          (print-checklist 15 root))
-        (println (str year "-" month "-" day ".pdf"))
-        (binding [*column-size* "\\begin{table}[!h]
+            (print-checklist 35 root')
+            (print-checklist 15 root'))
+          (println (str year "-" month "-" day ".pdf"))
+          (binding [*column-size* "\\begin{table}[!h]
 \\begin{tabular}{|p{6em}p{6em}p{6em}p{2em}p{5em}p{8em}|}"]
-          (print-empty-table 18))))
-    (println (sh "omake"))
-    (sh "cp" "checklist.pdf" (str year "-" month "-" day ".pdf")))
+            (print-empty-table 18))))
+      (println (sh "omake"))
+      (sh "cp" "checklist.pdf" (str year "-" month "-" day ".pdf"))))
   (shutdown-agents))
