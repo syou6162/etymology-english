@@ -55,6 +55,12 @@
        {:status 200
         :headers {"Content-Type" "application/json"}
         :body (json/write-str (json-content))})
+  (GET "/load-words" []
+       {:status 200
+        :headers {"Content-Type" "application/json"}
+        :body (->> (get-words)
+                   (map word-to-root-info)
+                   (json/write-str))})
   (GET "/list" []
        (->> (get-words)
             (map #(get word-to-root-info %))
