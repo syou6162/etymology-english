@@ -11,6 +11,27 @@ lein run --whole-list
 grep -h ",-" logs/*.csv | cut -d "," -f 1 | sort | uniq -c | sort -k 1 -r | cut -d " " -f 5 | lein run --use-mistaken-word-list --date 2014-01-01
 ```
 
+## Herokuへのdeployの仕方
+
+herokuコマンドでbuildpackのurlを登録。
+
+```sh
+heroku config:add BUILDPACK_URL=https://github.com/kolov/heroku-buildpack-clojure
+```
+
+project.cljでleinのバージョンの下限を指定。
+
+```clj
+  :min-lein-version "2.0.0"
+
+```
+
+Procfileは`lein run`ではなく以下を指定。
+
+```
+web: lein with-profile offline,production trampoline run -m etymology-english.json-server
+```
+
 ## License
 
 Copyright © 2014 Yasuhisa Yoshida

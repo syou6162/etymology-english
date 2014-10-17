@@ -1,4 +1,4 @@
-(ns etymology-english.search
+(ns etymology-english.learn
   (:require-macros [cljs.core.async.macros :refer [go]])
   (:use-macros
    [dommy.macros :only [node sel sel1]])
@@ -9,7 +9,7 @@
 
 (enable-console-print!)
 
-(def cursor (atom 0))
+(def cursor (atom -1))
 
 (def words (atom []))
 
@@ -33,9 +33,8 @@
      elem
      [:div
       [:div (:en w)]
-      [:div (:root-en w)]
       [:div (:ja w)]
-      [:div (:root-ja w)]])))
+      [:div (str (:root-en w) ": " (:root-ja w))]])))
 
 (defn get-alc-url [word]
   (str "http://eow.alc.co.jp/search?q=" word "&ref=sa"))
@@ -48,20 +47,16 @@
                         (str (:en w) "," (if (:learned? w) "+" "-"))])))]
     (dommy/replace-contents! elem result)))
 
-(defn operate-view!
-  "Get the text value from #todo-input and add it as a new
-  paragraph in #todos-div."
-  [evt]
+(defn operate-view! [evt]
   (let [word-div (sel1 :#word)
         answer-check-div (sel1 :#answer-check)]
     (let [k (.-keyCode evt)]
       (cond (or (= k 74) (= k 75))
             (let [w (nth @words (next-cursor evt))]
-              (dommy/replace-contents!
-               word-div
-               (if (get-in @words [@cursor :learned?])
-                 (show-answer! word-div @cursor)
-                 [:div [:div (:en w)]])))
+              (if (get-in @words [@cursor :learned?])
+                (show-answer! word-div @cursor)
+                (dommy/replace-contents!
+                 word-div [:div [:div (:en w)]])))
 
             (= k 79) ;; o
             (show-answer! word-div @cursor)
@@ -85,7 +80,7 @@
 
 (defn load-words! []
   (go
-   (->> (<! (http/get "http://localhost:8080/load-words"))
+   (->> (<! (http/get "./load-words"))
         (:body)
         (mapv (fn [w] (assoc w :learned? false)))
         (reset! words))))

@@ -2,7 +2,7 @@
   (:use [ring.adapter.jetty :only (run-jetty)])
   (:require [compojure.handler :as handler])
   (:use [compojure.core :only (defroutes context GET PUT POST)])
-  (:use [compojure.route :only (not-found files)])
+  (:use [compojure.route :only (not-found files resources)])
   (:require [clojure.data.json :as json])
   (:use [etymology-english.core :only (root)]))
 
@@ -61,6 +61,7 @@
         :body (->> (get-words)
                    (map word-to-root-info)
                    (json/write-str))})
+  (resources "/")
   (GET "/list" []
        (->> (get-words)
             (map #(get word-to-root-info %))
