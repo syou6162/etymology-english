@@ -18,11 +18,17 @@
                (map #(str logs-dir "/" %))
                (map slurp)
                (clojure.string/join "\n"))
-        words (->> (clojure.string/split s #"\n")
+        words (->> (clojure.string/split s #"(\r)?\n")
+                   (remove (fn [line] (= line "")))
                    (map #(clojure.string/split % #","))
-                   (filter (fn [[w correct?]] (= "-" correct?)))
-                   (map first)
-                   (frequencies)
+                   (group-by first)
+                   (map
+                    (fn [[w v]]
+                      (let [result (group-by second v)
+                            pos (count (get result "+" []))
+                            neg (count (get result "-" []))
+                            total (+ pos neg)]
+                        [w (/ neg total)])))
                    (sort-by second >)
                    (map first))]
     words))
