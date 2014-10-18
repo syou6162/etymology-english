@@ -36,6 +36,7 @@
 (defn json-content []
   {"content" (->> (get-words)
                   (map-indexed (fn [idx w] (str idx ": " w)))
+                  (take 50)
                   (clojure.string/join "\n"))
    "refresh" *refresh*
    "vibrate" *vibrate*
