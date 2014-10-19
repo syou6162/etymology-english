@@ -41,11 +41,14 @@
 
 (defn show-answer-check! [elem]
   (let [result (->> @words
+                    (take 10)
                     (map
                      (fn [w]
                        [:div
-                        (str (:en w) "," (if (:learned? w) "+" "-"))])))]
-    (dommy/replace-contents! elem result)))
+                        (str (:en w) "," (if (:learned? w) "+" "-"))])))
+        [front end] (split-at (inc @cursor) result)]
+    (->> (concat front [(node [:hr])] end)
+         (dommy/replace-contents! elem))))
 
 (defn operate-view! [evt]
   (let [word-div (sel1 :#word)
