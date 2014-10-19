@@ -420,15 +420,45 @@
                {:en "subordinate", :ja "下に置く、副次的な、従属する"}
                {:en "coordinate", :ja "対等にする、調整する"}]}
    ; 46
-   {:en "part" :ja "分ける、部分" :examples [{:en "partial", :ja "部分的な、えこひいきする、とても好きな"}]}
+   {:en "part" :ja "分ける、部分"
+    :examples [{:en "partial", :ja "部分的な、えこひいきする、とても好きな"}
+               {:en "impartial", :ja "公平な、偏らない"}
+               {:en "depart", :ja "出発する"}
+               {:en "partake", :ja "参加する、(飲食を)共にする"}
+               {:en "particular", :ja "特別な"}
+               {:en "impart", :ja "与える、添える"}]}
    ; 47
-   {:en "pass / pace" :ja "歩、通り過ぎる" :examples [{:en "pastime", :ja "娯楽、気晴らし"}]}
+   {:en "pass / pace" :ja "歩、通り過ぎる"
+    :examples [{:en "pastime", :ja "娯楽、気晴らし"}
+               {:en "surpass", :ja "勝る、越える、上回る"}
+               {:en "trespass", :ja "不法侵入する、侵害する"}
+               {:en "passenger", :ja "乗客、旅客"}
+               {:en "passable", :ja "通行できる、まずまずの、かなり良い"}
+               {:en "passage", :ja "通路、道路、通行(権)、一節"}]}
    ; 48
-   {:en "path / pass" :ja "感じる、苦しむ" :examples [{:en "antipathy", :ja "反感、嫌悪"}]}
+   {:en "path / pass" :ja "感じる、苦しむ"
+    :examples [{:en "antipathy", :ja "反感、嫌悪"}
+               {:en "anthetic", :ja "無気力の、無感動の、無関心な"}
+               {:en "patient", :ja "患者、我慢強い"}
+               {:en "sympathize", :ja "同情する、共感する"}
+               {:en "passive", :ja "受動的な、消極的な"}
+               {:en "compatible", :ja "気が合う、矛盾がない、互換性がある"}]}
    ; 49
-   {:en "ped(e) / pod / pus" :ja "足" :examples [{:en "peddle", :ja "行商する、売り歩く"}]}
+   {:en "ped(e) / pod / pus" :ja "足"
+    :examples [{:en "peddle", :ja "行商する、売り歩く"}
+               {:en "expedition", :ja "探検"}
+               {:en "impede", :ja "妨げる"}
+               {:en "pedestrian", :ja "歩行者"}
+               {:en "expedite", :ja "促進する、手早く片づける"}
+               {:en "pedigree", :ja "系図、家計、血統"}]}
    ; 50
-   {:en "pel / puls" :ja "押す、打つ" :examples [{:en "compel", :ja "強いる、余儀なくさせる"}]}
+   {:en "pel / puls" :ja "押す、打つ"
+    :examples [{:en "compel", :ja "強いる、余儀なくさせる"}
+               {:en "impulse", :ja "衝撃、衝動"}
+               {:en "repulse", :ja "撃退する"}
+               {:en "expel", :ja "追放する、除名する"}
+               {:en "repel", :ja "寄せ付けない、拒絶する"}
+               {:en "dispel", :ja "置い散らす、鳴らす、一掃する"}]}
    ; 51
    {:en "pend" :ja "垂れる、さげる" :examples [{:en "depend", :ja "頼る、依存する"}]}
    ; 52
