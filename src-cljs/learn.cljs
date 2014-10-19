@@ -40,15 +40,24 @@
   (str "http://eow.alc.co.jp/search?q=" word "&ref=sa"))
 
 (defn show-answer-check! [elem]
-  (let [result (->> @words
-                    (take 10)
+  (let [done "done"
+        result (->> @words
                     (map
                      (fn [w]
                        [:div
                         (str (:en w) "," (if (:learned? w) "+" "-"))])))
-        [front end] (split-at (inc @cursor) result)]
-    (->> (concat front [(node [:hr])] end)
-         (dommy/replace-contents! elem))))
+        [front' end] (split-at (inc @cursor) result)
+        front [(-> [:div front']
+                   (dommy/set-attr! :id done))]
+        select-done-words! (fn []
+                             (let [elem (. js/document (getElementById done))
+                                   rng (. js/document (createRange))]
+                               (.removeAllRanges (. js/window getSelection))
+                               (. rng (selectNodeContents elem))
+                               (.addRange (. js/window getSelection) rng)))]
+    (->> (concat front end)
+         (dommy/replace-contents! elem))
+    (select-done-words!)))
 
 (defn operate-view! [evt]
   (let [word-div (sel1 :#word)
