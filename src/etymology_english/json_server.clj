@@ -18,9 +18,16 @@
                (map #(str logs-dir "/" %))
                (map slurp)
                (clojure.string/join "\n"))
+        ;; 全単語を登場させるためにディフォルトで間違いのカウントを1つ追加しておく
+        default-count (->> root
+                           (map (fn [item]
+                                  (->> (:examples item)
+                                       (map (fn [w] [(:en w) "-"])))))
+                           (reduce into []))
         words (->> (clojure.string/split s #"(\r)?\n")
                    (remove (fn [line] (= line "")))
                    (map #(clojure.string/split % #","))
+                   (into default-count)
                    (group-by first)
                    (map
                     (fn [[w v]]
