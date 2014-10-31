@@ -15,6 +15,16 @@
 
 (def words (atom []))
 
+(def word-stat-map (atom []))
+
+(defn load-word-stat-map! []
+  (go
+   (let [result (->> (<! (http/get "./word-stat-map"))
+                     (:body))]
+     (reset! word-stat-map result))))
+
+(.addEventListener js/window "load" load-word-stat-map!)
+
 (defn next-cursor [evt]
   (let [default @cursor]
     (cond (= 74 (.-keyCode evt)) ;; j
@@ -30,13 +40,20 @@
           :else default)))
 
 (defn show-answer! [elem word-idx]
-  (let [w (nth @words word-idx)]
+  (let [w (nth @words word-idx)
+        en-word-keyword (keyword (:en w))]
     (dommy/replace-contents!
      elem
      [:div
       [:div (:en w)]
       [:div (:ja w)]
-      [:div (str (:root-en w) ": " (:root-ja w))]])))
+      [:div (str (:root-en w) ": " (:root-ja w))]
+      [:div
+       (str "Total: " (int (* 100 (get-in @word-stat-map [en-word-keyword :rate]))) "%"
+            " (" (get-in @word-stat-map [en-word-keyword :pos-cnt])
+            ", "
+            (get-in @word-stat-map [en-word-keyword :neg-cnt])
+            ")")]])))
 
 (defn get-alc-url [word]
   (str "http://eow.alc.co.jp/search?q=" word "&ref=sa"))

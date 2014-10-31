@@ -113,6 +113,11 @@
                (str idx ": " (:en item) "\t" (:ja item) "\t"
                     (:root-en item) "\t" (:root-ja item))))
             (clojure.string/join "<br />")))
+  (GET "/word-stat-map" []
+       {:status 200
+        :headers {"Content-Type" "application/json"}
+        :body (->> (get-word-stat-map)
+                   (json/write-str))})
   (GET "/list-by-root" []
        (let [stat-map (get-word-stat-map)
              result (->> root
