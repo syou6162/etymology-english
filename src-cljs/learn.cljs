@@ -94,10 +94,17 @@
 
 (defn load-words! []
   (go
-   (->> (<! (http/get "./load-words"))
-        (:body)
-        (mapv (fn [w] (assoc w :learned? false)))
-        (reset! words))))
+   (let [difficult-num 20
+         total-num 50
+         result' (->> (<! (http/get "./load-words"))
+                      (:body)
+                      (mapv (fn [w] (assoc w :learned? false))))
+         [difficult easy] (split-at difficult-num result')
+         [easy-first rest] (split-at (- total-num difficult-num) (shuffle easy))
+         head (shuffle (concat difficult easy-first))
+         result (->> (into head rest)
+                     (vec))]
+     (reset! words result))))
 
 (dommy/listen! (sel1 :body) :keyup operate-view!)
 
