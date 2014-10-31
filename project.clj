@@ -15,6 +15,7 @@
                  [org.clojure/tools.cli "0.2.1"]
                  [clj-time "0.6.0"]
                  [compojure "1.1.8"]
+                 [hiccup "0.3.7"]
                  [ring/ring-jetty-adapter "1.3.0"]
                  [prismatic/dommy "0.1.1"]
                  [org.clojure/clojurescript "0.0-2138"]
