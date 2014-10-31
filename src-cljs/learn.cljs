@@ -5,7 +5,9 @@
   (:require
    [cljs-http.client :as http]
    [dommy.core :as dommy]
-   [cljs.core.async :refer [<!]]))
+   [cljs.core.async :refer [<! timeout]]
+   [goog.string :as gstring]
+   [goog.string.format :as gformat]))
 
 (enable-console-print!)
 
@@ -100,3 +102,21 @@
 (dommy/listen! (sel1 :body) :keyup operate-view!)
 
 (.addEventListener js/window "load" load-words!)
+
+(let [start (js/Date.)]
+  (defn show-time-progress! []
+    (let [time-progress-div (sel1 :#time-progress)
+          pad-zero (fn [x] (if (> 10 x) (str "0" x) x))]
+      (go
+       (loop []
+         (let [now (js/Date.)
+               tmp (/ (- (.getTime now) (.getTime start)) 1000)
+               hour (pad-zero (js/parseInt (/ tmp 3600)))
+               minute (pad-zero (js/parseInt (mod (/ tmp 60) 60)))
+               second (pad-zero (js/parseInt (mod tmp 60)))
+               result (str hour ":" minute ":" second)]
+           (dommy/set-text! time-progress-div result))
+         (<! (timeout 1000))
+         (recur))))))
+
+(set! (.-onload js/window) show-time-progress!)
