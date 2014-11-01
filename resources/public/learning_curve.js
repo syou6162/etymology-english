@@ -11,12 +11,11 @@ $.ajax({
 
 function drawChart() {
     var data = google.visualization.arrayToDataTable(result);
-    var options = {
-	title: 'Learning Curve',
-	dataType: 'Continuous'};
-    var chart = new google.visualization.LineChart(document.getElementById('chart'));
+    var options = {title: 'Learning Curve',
+		   isStacked: true};
+    var chart = new google.visualization.ColumnChart(document.getElementById('chart'));
     chart.draw(data, options);
 }
 
-google.load("visualization", "1", {packages:["corechart"]});
+google.load("visualization", "1.1", {packages:["corechart"]});
 google.setOnLoadCallback(drawChart);
