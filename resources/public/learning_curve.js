@@ -1,7 +1,8 @@
-var result = [['Year', 'Correct Count', 'Wrong Count']];
+var result = [];
 $.ajax({
     type: 'GET',
     url: './diary-logs',
+    async: false,
     datatype: 'json',
     success: function(json){
 	$.each(json, function(i, item) {
@@ -10,7 +11,11 @@ $.ajax({
 			 item["content"]["neg-cnt"]]);})}});
 
 function drawChart() {
-    var data = google.visualization.arrayToDataTable(result);
+    var data = new google.visualization.DataTable();
+    data.addColumn('datetime', 'Year');
+    data.addColumn('number', 'Correct Count');
+    data.addColumn('number', 'Wrong Count');
+    data.addRows(result);
     var options = {title: 'Learning Curve',
 		   isStacked: true};
     var chart = new google.visualization.ColumnChart(document.getElementById('chart'));
