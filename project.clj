@@ -10,6 +10,8 @@
                                    :optimizations
                                    :whitespace
                                    :pretty-print true}}]}
+  :repositories [["Atilika Open Source repository"
+                  "http://www.atilika.org/nexus/content/repositories/atilika"]]
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/data.json "0.2.5"]
                  [org.clojure/tools.cli "0.2.1"]
@@ -19,6 +21,7 @@
                  [ring/ring-jetty-adapter "1.3.0"]
                  [prismatic/dommy "0.1.1"]
                  [org.clojure/clojurescript "0.0-2138"]
-                 [cljs-http "0.1.2"]]
+                 [cljs-http "0.1.2"]
+                 [org.atilika.kuromoji/kuromoji "0.7.7"]]
   :web-content "public"
   :main etymology-english.core)

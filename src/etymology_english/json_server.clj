@@ -7,9 +7,11 @@
   (:require [clojure.data.json :as json])
   (:use [etymology-english.core :only (root)]))
 
+(import '(org.atilika.kuromoji Tokenizer Token))
+
 (def ^:dynamic *refresh* 300)
 (def ^:dynamic *vibrate* 0)
-(def ^:dynamic *font* 8)
+(def ^:dynamic *font* 4)
 (def ^:dynamic *theme* 0)
 
 (def logs-dir "logs")
@@ -69,16 +71,6 @@
                     (reduce merge {}))]
     result))
 
-(defn json-content []
-  {"content" (->> (get-words)
-                  (map-indexed (fn [idx w] (str idx ": " w)))
-                  (take 50)
-                  (clojure.string/join "\n"))
-   "refresh" *refresh*
-   "vibrate" *vibrate*
-   "font" *font*
-   "theme" *theme*})
-
 (def word-to-root-info
   (->> root
        (map (fn [item]
@@ -92,6 +84,28 @@
                         :ja (:ja w)}])))))
        (reduce into [])
        (into {})))
+
+(let [tokenizer (.. Tokenizer builder build)
+      line2tokens #(.tokenize tokenizer %)]
+  (defn get-reading [line]
+    (->> (line2tokens line)
+         (map (fn [^Token w] (.getReading w)))
+         (clojure.string/join ""))))
+
+(defn json-content []
+  {"content" (->> (get-words)
+                  (map-indexed
+                   (fn [idx w]
+                     (let [reading (-> word-to-root-info
+                                       (get-in [w :ja])
+                                       (get-reading))]
+                       (str idx ": " w "\n" reading))))
+                  (take 15)
+                  (clojure.string/join "\n"))
+   "refresh" *refresh*
+   "vibrate" *vibrate*
+   "font" *font*
+   "theme" *theme*})
 
 (defroutes routes
   (GET "/" []
