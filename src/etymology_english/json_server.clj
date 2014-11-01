@@ -3,6 +3,7 @@
   (:require [compojure.handler :as handler])
   (:use [compojure.core :only (defroutes context GET PUT POST)])
   (:use [compojure.route :only (not-found files resources)])
+  (:use [clj-time.format :only (parse formatter)])
   (:use [hiccup.page-helpers :only (html5)])
   (:require [clojure.data.json :as json])
   (:use [etymology-english.core :only (root)]))
@@ -124,6 +125,25 @@
                   (assoc :rate (/ pos-cnt (+ pos-cnt neg-cnt)))))))
          (sort-by :rate))))
 
+(defn get-diary-logs []
+  (->> (java.io.File. logs-dir)
+       (.list)
+       (sort)
+       (map
+        (fn [filename]
+          (let [date-pat (first (clojure.string/split filename #"\."))
+                date (parse (formatter "yyyy-MM-dd") date-pat)
+                lines (->> (str logs-dir "/" filename)
+                           (slurp))
+                content (->> (clojure.string/split lines #"(\r)?\n")
+                             (remove (fn [line] (= line "")))
+                             (map #(clojure.string/split % #","))
+                             (map second)
+                             (frequencies))]
+            {:date date-pat
+             :content {:pos-cnt (get content "+")
+                       :neg-cnt (get content "-")}})))))
+
 (defroutes routes
   (GET "/" []
        {:status 200
@@ -134,6 +154,11 @@
         :headers {"Content-Type" "application/json"}
         :body (->> (get-words)
                    (map word-to-root-info)
+                   (json/write-str))})
+  (GET "/diary-logs" []
+       {:status 200
+        :headers {"Content-Type" "application/json"}
+        :body (->> (get-diary-logs)
                    (json/write-str))})
   (resources "/")
   (GET "/list" []
