@@ -107,6 +107,23 @@
    "font" *font*
    "theme" *theme*})
 
+(defn sort-by-wrong-rate [coll]
+  (let [stat-map (get-word-stat-map)]
+    (->> coll
+         (map
+          (fn [w]
+            (let [pos-cnt (->> (:examples w)
+                               (map #(-> (get stat-map (:en %)) :pos-cnt))
+                               (reduce +))
+                  neg-cnt (->> (:examples w)
+                               (map #(-> (get stat-map (:en %)) :neg-cnt))
+                               (reduce +))]
+              (-> w
+                  (assoc :pos-cnt pos-cnt)
+                  (assoc :neg-cnt neg-cnt)
+                  (assoc :rate (/ pos-cnt (+ pos-cnt neg-cnt)))))))
+         (sort-by :rate))))
+
 (defroutes routes
   (GET "/" []
        {:status 200
@@ -135,10 +152,16 @@
   (GET "/list-by-root" []
        (let [stat-map (get-word-stat-map)
              result (->> root
+                         (sort-by-wrong-rate)
                          (map
                           (fn [w]
                             [:li
-                             (str (:en w) " (" (:ja w) ")")
+                             (str (:en w) " (" (:ja w) ")"
+                                  " => "
+                                  "(total: " (int (* 100 (:rate w))) "%"
+                                  ", correct: " (:pos-cnt w)
+                                  ", wrong: " (:neg-cnt w)
+                                  ")")
                              [:ul
                               (->> (:examples w)
                                    (map
