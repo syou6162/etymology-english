@@ -460,11 +460,29 @@
                {:en "repel", :ja "寄せ付けない、拒絶する"}
                {:en "dispel", :ja "置い散らす、鳴らす、一掃する"}]}
    ; 51
-   {:en "pend" :ja "垂れる、さげる" :examples [{:en "depend", :ja "頼る、依存する"}]}
+   {:en "pend" :ja "垂れる、さげる"
+    :examples [{:en "depend", :ja "頼る、依存する"}
+               {:en "independent", :ja "独立した"}
+               {:en "suspend", :ja "一時停止にする、停学(休職、停職)処分にする"}
+               {:en "suspense", :ja "緊張感、サスペンス"}
+               {:en "impending", :ja "今にも起こりそうな"}
+               {:en "perpendicular", :ja "垂直の、切り立った"}]}
    ; 52
-   {:en "pend / pens" :ja "(吊るして)計る、支払う" :examples [{:en "dispence", :ja "分配する、…なしですます"}]}
+   {:en "pend / pens" :ja "(吊るして)計る、支払う"
+    :examples [{:en "dispence", :ja "分配する、…なしですます"}
+               {:en "expenditure", :ja "支出、経費"}
+               {:en "compensate", :ja "償う、埋め合わせる、補償する"}
+               {:en "pension", :ja "年金"}
+               {:en "pensive", :ja "物思いに沈んだ、悲しげな"}
+               {:en "recompense", :ja "弁償をする、報いる"}]}
    ; 53
-   {:en "ple / pli / ply" :ja "(折り)重なる、(折り)重ねる" :examples [{:en "complicated", :ja "複雑な、難しい"}]}
+   {:en "ple / pli / ply" :ja "(折り)重なる、(折り)重ねる"
+    :examples [{:en "complicated", :ja "複雑な、難しい"}
+               {:en "duplicate", :ja "複写する、真似する"}
+               {:en "reply", :ja "返事をする、答える"}
+               {:en "explicit", :ja "明白な、わかりやすい"}
+               {:en "implicit", :ja "暗黙の、それとなしの、絶対的な"}
+               {:en "imply", :ja "暗に意味する、ほのめかす"}]}
    ; 54
    {:en "popul / public / dem" :ja "人、人々" :examples [{:en "democracy", :ja "民主主義、民主政治"}]}
    ; 55
