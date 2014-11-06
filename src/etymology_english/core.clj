@@ -484,17 +484,59 @@
                {:en "implicit", :ja "暗黙の、それとなしの、絶対的な"}
                {:en "imply", :ja "暗に意味する、ほのめかす"}]}
    ; 54
-   {:en "popul / public / dem" :ja "人、人々" :examples [{:en "democracy", :ja "民主主義、民主政治"}]}
+   {:en "popul / public / dem" :ja "人、人々"
+    :examples [{:en "democracy", :ja "民主主義、民主政治"}
+               {:en "publish", :ja "発表する、出版する"}
+               {:en "epidemic", :ja "伝染性の、流行する"}
+               {:en "population", :ja "人口"}
+               {:en "endemic", :ja "(一地方)特有の、固有の"}
+               {:en "pandemic", :ja "広域的な、全国的な"}]}
    ; 55
-   {:en "port" :ja "運ぶ、港" :examples [{:en "export", :ja "輸出する"}]}
+   {:en "port" :ja "運ぶ、港"
+    :examples [{:en "export", :ja "輸出する"}
+               {:en "import", :ja "輸入する"}
+               {:en "opportune", :ja "適切な、好都合な"}
+               {:en "support", :ja "支える、養う"}
+               {:en "transport", :ja "輸送する"}
+               {:en "deport", :ja "国外に追放する"}]}
    ; 56, 57
-   {:en "pose / posit" :ja "置く、止まる" :examples [{:en "purpose", :ja "目的、意図"}]}
+   {:en "pose / posit" :ja "置く、止まる"
+    :examples [{:en "purpose", :ja "目的、意図"}
+               {:en "propose", :ja "提案する、(結婚を)申し込む"}
+               {:en "impose", :ja "課す、科す、押しつける"}
+               {:en "expose", :ja "さらす"}
+               {:en "repose", :ja "休憩する、載っている"}
+               {:en "suppose", :ja "思う、想像する、もし〜するとしたら"}
+               {:en "compose", :ja "作曲する、構成する、作詞する"}
+               {:en "dispose", :ja "処分する(of)、始末する、したい気にさせる"}
+               {:en "depose", :ja "避ける、免職する"}
+               {:en "oppose", :ja "反対する"}
+               {:en "composure", :ja "落ち付き、平静"}
+               {:en "decompose", :ja "分解する(させる)、腐敗する(させる)"}]}
    ; 58
-   {:en "posit / pone" :ja "置く" :examples [{:en "postpone", :ja "延期する"}]}
+   {:en "posit / pone" :ja "置く"
+    :examples [{:en "postpone", :ja "延期する"}
+               {:en "opponent", :ja "敵、相手"}
+               {:en "proponent", :ja "支持者、提案者"}
+               {:en "positive", :ja "明確な、確信した、積極的な、陽性の"}
+               {:en "opposite", :ja "反対側の、正反対の"}
+               {:en "deposit", :ja "置く、預金する"}]}
    ; 59
-   {:en "press" :ja "押す" :examples [{:en "depress", :ja "低迷させる、落胆させる、弱める"}]}
+   {:en "press" :ja "押す"
+    :examples [{:en "depress", :ja "低迷させる、落胆させる、弱める"}
+               {:en "express", :ja "表現する"}
+               {:en "impress", :ja "印象を与える、押しつける"}
+               {:en "pressing", :ja "差し迫った、緊急な"}
+               {:en "oppress", :ja "圧迫する、虐げる、重圧を感じる"}
+               {:en "suppress", :ja "鎮圧する、抑える"}]}
    ; 60
-   {:en "pri(n) / pri(m)" :ja "一番目の、一つの" :examples [{:en "premier", :ja "首相、総理大臣"}]}
+   {:en "pri(n) / pri(m)" :ja "一番目の、一つの"
+    :examples [{:en "premier", :ja "首相、総理大臣"}
+               {:en "principal", :ja "主要な、もっとも重要な"}
+               {:en "primitive", :ja "原始(時代)の、原始的な"}
+               {:en "principle", :ja "原理、主義"}
+               {:en "primary", :ja "第一の、もっとも重要な、最初の"}
+               {:en "prime", :ja "第一の、もっとも重要な"}]}
    ; 61
    {:en "pris(e) / pre(hend)" :ja "つかむ" :examples [{:en "imprison", :ja "投獄する"}]}
    ; 62
